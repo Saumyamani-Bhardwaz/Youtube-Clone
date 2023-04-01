@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUTHOOB !</title>
+    <link rel="stylesheet" href="website.css">
+    <script src="https://kit.fontawesome.com/814c3dba13.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+
+        function startDictation() {
+
+            if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+                var recognition = new webkitSpeechRecognition();
+
+                recognition.continuous = false;
+                recognition.interimResults = false;
+
+                recognition.lang = "en-US";
+                recognition.start();
+
+                recognition.onresult = function(e) {
+                    document.getElementById('transcript').value = e.results[0][0].transcript;
+                    recognition.stop();
+                    document.getElementById('Youthoob').submit();
+                };
+
+                recognition.onerror = function(e) {
+                    recognition.stop();
+                }
+
+            }
+        }
+    </script>
+
+    <!-- HORIZONTAL NOTIFICATION BAR -->
+    <nav class="nav1">
+        <!--LOGO-->
+        <div class="logo" style="text-align: left"></div>
+        <img src="ytt.jpeg" width="150" height="30"> &nbsp;&nbsp;
+        </div>
+        <!--SEARCH BAR-->
+
+        <div class="search">
+            <form action="http://www.youtube.com/results" method="get">
+                <input name="search_query" type="text" maxlength="128" class="search_bar">
+                <input type="submit" value="Search" class="search_icon" style="margin-top: 5px;">
+            </form>
+            <!--VOICE SEARCH-->
+
+        </div>
+        <form id="Youthoob" method="get" action="https://www.youtube.com/search">
+            <div class="speech">
+                <input type="text" name="q" id="transcript" placeholder="Speak" />
+                <img onclick="startDictation()" src="mic.jpeg" />
+            </div>
+        </form>
+        <!--CATEGORY DROP DOWN LIST-->
+
+        <div class="catdown">
+            <button class="catbtn" style="margin-left: 0px; margin-top: 2px; height: 35px;
+             background:rgb(12, 12, 12); color:white; 
+            ">CATEGORIES</button>
+            <div class="catdown-content">
+                <a href="https://www.youtube.com/results?search_query=Educational+video+">Educational Content</a><br>
+                <a href="https://www.youtube.com/results?search_query=Automobile+Content">Automobile Content</a><br>
+                <a href="https://www.youtube.com/results?search_query=jee">JEE Content</a><br>
+                <a href="https://www.youtube.com/results?search_query=coding+for+beginners"> Coding Content</a>
+                <a href="https://www.youtube.com/results?search_query=English+songs"> English Songs</a>
+                <a href="https://www.youtube.com/results?search_query=Bollywood+songs"> Hindi Bollywood Songs</a>
+                <a href="https://www.youtube.com/results?search_query=Enterpreneurships"> Enterpreneurships Content</a>
+            </div>
+        </div>
+
+        <!--YOUTUBE ICONS-->
+
+        <div class="r-icon">
+            <a href="https://studio.youtube.com/"><i class="fas fa-video"></i></a>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn"><i class="fas fa-th"></i></button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="https://tv.youtube.com/?utm_source=youtube_web&utm_medium=ep&utm_campaign=home&ve=34273">YouTube
+                        TV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <a href="https://music.youtube.com/">YouTube Musics&nbsp;&nbsp;</a>
+                    <a href="https://www.youtubekids.com/?source=youtube_web">YouTube Kids&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                </div>
+            </div>
+            <a href="http://localhost/youthoob/form.php" target="_blank">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- VERTICAL NOTIFICATION BAR -->
+
+    <nav class="nav2">
+        <a href="https://www.youtube.com/account">
+            <i class="fas fa-bars" id="menubar"></i>
+        </a>
+        <a href="index.html">
+            <i class="fas fa-home"></i><br>HOME
+        </a>
+        <a href="https://www.youtube.com/feed/trending?bp=6gQJRkVleHBsb3Jl">
+            <i class="fas fa-fire"></i><br>Trending
+        </a>
+        <a href="https://www.youtube.com/feed/subscriptions">
+            <i class="fas fa-eject"></i><br>Subscription
+        </a>
+        <a href="https://www.youtube.com/feed/library">
+            <i class="fas fa-video"></i><br>Library
+        </a>
+        <a href="typing.html">
+            <i class="fas fa-keyboard"></i><br>Typing
+        </a>
+        <br>
+        <br>
+    </nav>
+
+    <!-- songs -->
+
+    <section class="songs">
+
+        <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/iUd9Kp-kKdw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes"> Taqdeer Movie - Tarse Tarse</p>
+            </div>
+        </div>
+
+        <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/XmQUnf0ihY4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes"> Janam Janam Tu hi - Pari Jain</p>
+            </div>
+        </div>
+
+        <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/0Pc86Vsk4Lw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes"> Duaa|| Cover by|| PARI JAIN </p>
+            </div>
+        </div>
+
+        <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/U5UhkvH3IcI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes">Hello (Movie) | BGM -(8D Version)
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="songs">
+        <!-- Entrepreneurship -->
+
+        <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/xNB0p4bE3ng" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes"> Entrepreneur Vs Intrapreneur | Dr Vivek Bindra</p>
+            </div>
+        </div>
+
+        <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/12eD3K5Peu8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes">Business Lessons Streets Of India | Capt. Raghu Raman </p>
+            </div>
+        </div>
+        <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/wbkpaA6LH80" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes">How Successful Entrepreneurs Think? By Sandeep Maheshwari I Hindi
+                </p>
+            </div>
+        </div>
+
+        <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/hJwSGKI2fNo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes">10 Tips To Become A College Entrepreneur | BeerBiceps हिंदी</p>
+            </div>
+        </div>
+
+        <!-- <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/e1rEHiuDtuc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes"> Top 5 Entrepreneurship Lessons </p>
+            </div>
+        </div>
+
+        <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/FZZXZjjwVlk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes"> Entrepreneurship & Diaspora</p>
+            </div>
+        </div> -->
+    </section>
+    <section class="songs">
+        <!-- motivatiom -->
+        <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/Ev2tzAJBEfE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes"> FOCUS ON YOU EVERY DAY - Best Motivational Speech
+                </p>
+            </div>
+        </div>
+        <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/tbnzAVRZ9Xc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes"> WATCH THIS EVERYDAY AND CHANGE YOUR LIFE
+                </p>
+            </div>
+        </div>
+        <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/1bumPyvzCyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes"> Arnold Schwarzenegger : Best Motivational Speech
+                </p>
+            </div>
+        </div>
+        <div class="ytvideo">
+            <div>
+                <iframe width="275" height="200" src="https://www.youtube.com/embed/8bQZewxW440" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="ytdes"> Proven Methods of Success | Mind Blowing Stories 🤯| Dr Vivek Bindra
+                </p>
+            </div>
+        </div>
+        <style>
+            * {
+                padding: 10;
+                margin: 0;
+                /* box-sizing: border-box; */
+                font-family: 'poppins', sans-serif;
+            }
+            
+            .songs {
+                display: flex;
+                margin-left: 5%;
+                background-color: #ffffff;
+            }
+            
+            .nav1 {
+                width: 99%;
+                height: 50px;
+                display: flex;
+                justify-content: space-between;
+                align-items: left;
+                padding: 1px 20px 1px 0px;
+                /* box-shadow: 0px 1px 2px #dfe6e9; */
+                position: relative;
+                top: 0;
+                background: white;
+            }
+            
+            .search {
+                flex: 2;
+                cursor: pointer;
+            }
+            
+            .logo {
+                flex: 1;
+            }
+            
+            .r-icon {
+                flex: 1;
+                text-align: right;
+            }
+            
+            .search form {
+                position: relative;
+                width: 80%;
+                padding: 6px 10px;
+                border: 1px solid #b2bec3;
+                margin-right: 5px;
+            }
+            
+            .search_bar {
+                padding: 6px 5px;
+                width: 20%;
+                border: none;
+                outline: none;
+            }
+            
+            .search_icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+                padding: 6px 25px;
+                color: grey;
+                background: #dfe6e9;
+                border-left: 1px solid #b2bec3;
+                border-bottom: 1px solid #b2bec3;
+                cursor: pointer;
+            }
+            
+            .r-icon i {
+                margin-left: 30px;
+                cursor: pointer;
+                color: rgb(0, 0, 0);
+                font-size: 20px;
+            }
+            
+            .nav2 {
+                width: 5%;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                background: white;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+            
+            #menubar {
+                margin-top: 15px;
+                margin-bottom: 20px;
+                cursor: pointer;
+            }
+            
+            .nav2 a {
+                text-decoration: none;
+                color: rgb(8, 0, 0);
+                font-size: 10px;
+                padding: 10px 5px;
+                margin: 10px 0px;
+            }
+            
+            .nav2 a:hover {
+                background: rgba(116, 114, 114, 0.747);
+            }
+            
+            .nav2 i {
+                font-size: 25px;
+                margin-bottom: 5px;
+            }
+            
+            .ytvideo {
+                /* float: left; */
+                width: 25%;
+                height: 42%;
+                background: rgba(223, 230, 233, 0.3);
+                display: flex;
+                justify-content: space-between;
+                padding-left: 4%;
+                padding-top: 60px;
+                padding-bottom: 50px;
+            }
+            /* .videos>div {
+                flex-basis: 10%;
+            } 
+             */
+            
+            .ytdes {
+                padding-left: 20px;
+                color: black;
+                font-size: 15px;
+                max-width: 400px;
+                margin: 10px 0px;
+            }
+            
+            .dropbtn {
+                background-color: #fff9f9;
+                color: white;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                text-align: center;
+            }
+            
+            .dropbtn:hover,
+            .dropbtn:focus {
+                background-color: #fcf8f8;
+            }
+            
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+            
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #0a0000;
+                color: white;
+                min-width: 160px;
+                overflow: auto;
+                /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
+                z-index: 1;
+            }
+            
+            .dropdown-content a {
+                color: rgb(241, 239, 239);
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            
+            .dropdown a:hover {
+                background-color: rgb(238, 14, 14);
+            }
+            
+            .show {
+                display: block;
+            }
+            
+            .speech {
+                border: 1px solid #DDD;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .speech input {
+                border: 0;
+                width: 50px;
+                display: inline-block;
+                height: 30px;
+            }
+            
+            .speech img {
+                float: right;
+                width: 30px;
+                height: 30px;
+            }
+            
+            .dropbtn {
+                background-color: white;
+                color: rgb(255, 253, 253);
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+            }
+            
+            .catdown {
+                position: relative;
+                display: inline-block;
+                padding-left: 80px;
+            }
+            
+            .catdown-content {
+                display: none;
+                position: absolute;
+                background-color: #070000;
+                min-width: 160px;
+                /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
+                z-index: 1;
+            }
+            
+            .catdown-content a {
+                color: rgb(255, 251, 251);
+                padding: 5px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            
+            .catdown-content a:hover {
+                background-color: rgb(238, 24, 24);
+                color: #fcf5f5;
+            }
+            
+            .catdown:hover .catdown-content {
+                display: block;
+            }
+        </style>
+
+
+
+        <style>
+
+        </style>
+
+</body>
+
+</html>
+
+</html>
